@@ -105,8 +105,8 @@ function main()
       this.x2 = this.x2_ini;
       this.y2 = this.y2_ini;
       //-- Velocidad de animacion
-      this.vx = 0;
-      this.vy = -20;
+      this.vy1 = 0;
+      this.vy2 = 0;
     },
 
     init: function(ctx) {
@@ -126,31 +126,64 @@ function main()
           case "w":
             //-- Comprobacion limite superior y mover
             if (this.y1 > 0) {
-              this.y1 = this.y1 + this.vy;
+              this.vy1 = -5;
             }
             break;
           case "s":
             //-- Comprobacion limite inferior y mover
             if (this.y1 < canvas.height -40) {
-              this.y1 = this.y1 - this.vy;;
+              this.vy1 = 5;
             }
             break;
           case "ArrowUp":
             //-- Comprobacion limite superior y mover
             if (this.y2 > 0) {
-              this.y2 = this.y2 + this.vy;
+              this.vy2 = -5;
             }
             break;
           case "ArrowDown":
             //-- Comprobacion limite inferior y mover
             if (this.y2 < canvas.height -40) {
-              this.y2 = this.y2 - this.vy;;
+              this.vy2 = 5;
             }
             break;
           default:
             break;
         }
       }
+      window.onkeyup = (e) => {
+        e.preventDefault();
+        switch (e.key) {
+          case "w":
+            //-- Comprobacion limite superior y mover
+            if (this.y1 > 0) {
+              this.vy1 = 0;
+            }
+            break;
+          case "s":
+            //-- Comprobacion limite inferior y mover
+            if (this.y1 < canvas.height -40) {
+              this.vy1 = 0;
+            }
+            break;
+          case "ArrowUp":
+            //-- Comprobacion limite superior y mover
+            if (this.y2 > 0) {
+              this.vy2 = 0;
+            }
+            break;
+          case "ArrowDown":
+            //-- Comprobacion limite inferior y mover
+            if (this.y2 < canvas.height -40) {
+              this.vy2 = 0;
+            }
+            break;
+          default:
+            break;
+        }
+      }
+      this.y1 = this.y1 + this.vy1;
+      this.y2 = this.y2 + this.vy2;
     }
   }
 
@@ -220,7 +253,6 @@ function main()
     //-- Lanzar el timer (si es que no estaba ya lanzado)
     if(!timer) {
       timer = setInterval(() => {
-        console.log("tic");
         //-- Actualizar elementos
         racks.update()
         bola.update()
@@ -251,13 +283,32 @@ function main()
           bola.vy = -bola.vy;
         }
         //-- Igualar rangos:
-
-        /*if(bola.x == 450 || bola.x == 50){
-
+        //codigo repetido
+        if (bola.x < 55){
+          ptop = racks.y1;
+          pbott = racks.y1 + racks.height;
+          pleft = racks.x1;
+          pright = racks.x1 + racks.width;
+          btop = bola.y;
+          bbott = bola.y + bola.height;
+          bleft = bola.x;
+          bright = bola.x + bola.width;
+          if (bright > pleft && btop < pbott && bleft < pright && bbott > ptop){
+            bola.vx = -bola.vx
           }
-        }*/
-        console.log("Vert.bola " + bola.y); //500
-        console.log("Pala 2 " + racks.y2);
+        }else if (bola.x > 445) {
+          ptop = racks.y2;
+          pbott = racks.y2 + racks.height;
+          pleft = racks.x2;
+          pright = racks.x2 + racks.width;
+          btop = bola.y;
+          bbott = bola.y + bola.height;
+          bleft = bola.x;
+          bright = bola.x + bola.width;
+          if (bright > pleft && btop < pbott && bleft < pright && bbott > ptop){
+            bola.vx = -bola.vx
+          }
+        }
       },20);
     }
   }
