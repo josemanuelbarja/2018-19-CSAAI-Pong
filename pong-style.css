@@ -1,4 +1,53 @@
-
-#display {
-  background-color: black;
+html{
+  color:#000, background: #FFF;
 }
+
+body{
+  font-family: Georgia; color: #222
+}
+.border{
+  padding: 10px 50px; border-width: 8px 0 8px 0; display: block; width:58em;
+}
+.header{
+  border: solid 5px; background-color: #888
+}
+#maintitle{
+  text-align: center; margin: 3px; font-family: monospace; font-size: 30px;
+  font-weight: bold;
+}
+.levels{
+  border: solid 5px; padding: 10px 0 10px 0  ;
+}
+
+#select{
+  padding: 12px 10px 12px 10px; font-size: 20px; width: 30em;
+  border: solid; border-width: 2px 8px 2px 8px; font-family: monospace;
+}
+
+.butlevel{
+  margin: 10px; padding: 10px;
+}
+button{
+  font-size: 20px; border-radius: 10px;
+  -webkit-box-shadow: 1px 2px 24px 10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 2px 24px 10px rgba(0,0,0,0.75);
+  box-shadow: 1px 2px 24px 10px rgba(0,0,0,0.75);
+  margin-right: 4em; font-family: monospace;
+}
+#sacar{
+  padding-left: 15em; padding-right: 15em;
+}
+.mycanvas{
+  border: solid; border-width: 4px 2px 0 2px; margin: 0;
+  position: relative; text-align: center; padding-top: 10px;
+}
+
+.settings{
+  border: solid; text-align: center; padding-left: 5em; padding-top: 20px;
+  padding-bottom: 20px; border-width: 0 2px 2px 2px
+}
+#display {
+  background-color: black; border: none; margin: 10px;
+  -webkit-box-shadow: 10px 10px 49px 15px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 49px 15px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 49px 15px rgba(0,0,0,0.75);

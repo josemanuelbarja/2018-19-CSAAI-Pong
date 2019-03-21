@@ -7,8 +7,24 @@
     <script src="pong-prog.js"></script>
   </head>
   <body onload="main()">
-   <p>Juego Del Pong</p>
-   <canvas id="display"></canvas>
-   <button id="sacar">Sacar</button>
+    <div class="border">
+      <div class="header">
+        <p id="maintitle">PONG: THE GAME</p>
+      </div>
+      <div class="levels">
+          <span id="select">Select the level: </span>
+          <span class="butlevel">
+            <button id="easy">Easy</button>
+            <button id="normal">Normal</button>
+            <button id="hard">Hard</button>
+          </span>
+      </div>
+      <div class="mycanvas">
+        <canvas id="display"></canvas>
+      </div>
+      <div class="settings">
+        <button id="sacar">Sacar</button>
+      </div>
+    </div>
   </body>
 </html>
